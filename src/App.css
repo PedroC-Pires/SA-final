@@ -1,0 +1,22 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  color: #ddd;
+}
+
+body, html {
+  background-color: #333344;
+  margin: 0;
+  padding: 0;
+}
+
+.logo1{
+  width: 140px;
+  height: 140px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
