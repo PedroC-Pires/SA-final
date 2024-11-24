@@ -1,8 +1,12 @@
 import React from 'react'
+import headerN from '../../components/headerN.jsx'
 
 const home = () => {
   return (
-    <div>home</div>
+    <>
+      <headerN></headerN>
+      <div>home</div>
+    </>
   )
 }
 
