@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-.containerl{
+.containerc{
     width: 480px;
     max-width: 90vw;
     height: auto;
@@ -24,7 +24,7 @@
     box-shadow: 5px 5px 30px #10101080;
 }
 
-input[class=inputLogin]{
+input[class=inputCadastro]{
     width: 80%;
     height: 45px;
     padding-left: 24px;
@@ -38,25 +38,31 @@ input[class=inputLogin]{
     box-shadow: 5px 5px 15px #20202080;
 }
 
-input[class=inputLogin]::placeholder{
+input[class=inputCadastro]::placeholder{
     color: #bbb;
     animation: ease-out;
     transition: 300ms;
 }
 
-input[class=inputLogin]:focus::placeholder{
+input[class=inputCadastro]:focus::placeholder{
     padding-left: 36px;
     padding-right: 36px;
     color: #00000000;
 }
 
-button[class=botaoLogin]{
+input[readonly]:focus::placeholder{
+    padding-left: 0px;
+    padding-right: 0px;
+    color: #bbb;
+}
+
+button[class=botaoCadastro]{
     width: 300px;
     height: 50px;
     border-radius: 25px;
     border: none;
     outline: none;
-    background-color: var(--ciano);
+    background-color: var(--laranja);
     margin-top: 1.5rem;
     color: #fff;
     font-size: 16px;
@@ -87,4 +93,19 @@ form{
     flex-direction: row;
     flex-wrap: nowrap;
     cursor: pointer;
+}
+
+.dividirWidth{
+    width: calc(80% + 48px);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 0.8rem;
+}
+
+.dividirWidth > input{
+    padding-left: 24px;
+    padding-right: 24px;
+    cursor: not-allowed;
 }
