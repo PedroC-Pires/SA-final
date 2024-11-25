@@ -1,9 +1,14 @@
 import React from 'react'
+import './header.css'
 
-const headerN = () => {
+const HeaderN = () => {
   return (
-    <div>headerN</div>
+    <div className='headerN'>
+      <div>
+        
+      </div>
+    </div>
   )
 }
 
-export default headerN
+export default HeaderN

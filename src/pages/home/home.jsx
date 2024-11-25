@@ -1,13 +1,12 @@
 import React from 'react'
-import headerN from '../../components/headerN.jsx'
+import HeaderN from '../../components/headerN.jsx'
 
-const home = () => {
+const Home = () => {
   return (
     <>
-      <headerN></headerN>
-      <div>home</div>
+      <HeaderN />
     </>
   )
 }
 
-export default home
+export default Home
