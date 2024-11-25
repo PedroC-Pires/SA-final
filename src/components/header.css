@@ -1,8 +1,60 @@
 .headerN {
   width: 100%;
-  min-height: 6rem;
-  background-color: #334;
+  min-height: 110px;
+  background-color: var(--dark);
   display: grid;
-  grid-template-columns: 1fr 1fr 10fr 2fr;
+  grid-template-columns: 2fr 3fr 2fr;
   grid-template-rows: 1fr;
+}
+
+.divLogo{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.divLogo > img{
+  width: 80px;
+}
+
+.divLogo > span{
+  color: #fff;
+  font-size: 32px;
+}
+
+.divBotoes{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  color: #fff;
+}
+
+.divBotoes > a:link, .divBotoes a:visited{
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50vh;
+  animation: ease-in-out;
+  transition: 200ms;
+}
+
+.divBotoes > a:link:hover, .divBotoes a:visited:hover{
+  filter: brightness(1.1);
+}
+
+.botaoLogin{
+  background-color: var(--ciano);
+}
+
+.botaoRegister{
+  background-color: var(--laranja);
 }
