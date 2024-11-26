@@ -3,8 +3,6 @@ import HeaderN from '../../components/headerN.jsx'
 import './homeN.css'
 import star from '../../assets/icons/star.svg'
 
-import img1 from 'url'
-
 const Home = () => {
   return (
     <>

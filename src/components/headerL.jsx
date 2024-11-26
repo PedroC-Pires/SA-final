@@ -12,7 +12,7 @@ const HeaderL = () => {
       </div>
       <div></div>
       <div className='divBotoes'>
-        
+        <Link to="/" className='botaoRegister'>Deslogar</Link>
       </div>
     </div>
   )

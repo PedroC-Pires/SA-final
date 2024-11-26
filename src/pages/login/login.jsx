@@ -20,12 +20,21 @@ const Login = () => {
     setSenha(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault(); // Evita o comportamento padrão de redirecionamento
-    console.log('Email:', email);
-    console.log('Senha:', senha);
-    // Aqui você pode adicionar lógica para validação ou envio dos dados
-    window.location.href = '/home'; // Redireciona após a lógica
+  const handleLogin = (event) => {
+    event.preventDefault();
+    if (!email || !senha) {
+      alert("Por favor, preencha o e-mail e a senha.");
+      return;
+    }
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    const usuarioEncontrado = usuarios.find((usuario) => usuario.email === email && usuario.senha === senha);
+    if (usuarioEncontrado) {
+      window.location.href = "/feed";
+    } else {
+      alert("E-mail ou senha incorretos. Tente novamente.");
+    }
+    setEmail("");
+    setSenha("");
   };
 
   return (
@@ -38,7 +47,7 @@ const Login = () => {
           </div>
 
           <h1>Login</h1>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleLogin}>
             <input
               type="email"
               name="email"
