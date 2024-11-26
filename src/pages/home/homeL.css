@@ -63,7 +63,7 @@
     height: auto;
     display: grid;
     grid-template-columns: 240px;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 250px 250px 250px;
     gap: 16px;
     border-left: #aaa solid 1px;
 }
@@ -156,7 +156,7 @@
 }
 
 hr{
-    width: 75%;
+    width: 65%;
     border-color: #aaa;
 }
 
@@ -165,4 +165,15 @@ hr{
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-evenly;
+}
+
+.aaaa > div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.aaaa > div > span{
+    font-size: 15px;
 }
