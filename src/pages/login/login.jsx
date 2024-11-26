@@ -30,7 +30,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="background">
+      <div className="backgroundl">
         <div className="containerl">
           <div className="voltar" onClick={voltar}>
             <img src={back} alt="voltar" />

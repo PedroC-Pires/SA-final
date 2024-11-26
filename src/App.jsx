@@ -4,6 +4,7 @@ import './app.css'
 
 import Login from './pages/login/login';
 import Home from './pages/home/homeN';
+import HomeL from './pages/home/homeL';
 import Cadastro from './pages/cadastro/cadastro';
 
 export default function App() {
@@ -11,6 +12,7 @@ export default function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/logado" element={<HomeL />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
       </Routes>

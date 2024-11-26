@@ -12,9 +12,9 @@ const HeaderN = () => {
       </div>
       <div></div>
       <div className='divBotoes'>
-        <Link to="/login" className='botaoLogin'>Entar</Link>
-        <span>ou</span>
         <Link to="/cadastro" className='botaoRegister'>Cadastro</Link>
+        <span>ou</span>
+        <Link to="/login" className='botaoLogin'>Login</Link>
       </div>
     </div>
   )
