@@ -44,8 +44,14 @@
     width: 100%;
     height: 105px;
     border-radius: 4px;
-    object-fit: cover;
-    object-position: top;
+    transition: 200ms;
+    animation: ease-in-out;
+}
+
+.cards > div > img:hover{
+    transform: scale(1.3);
+    box-shadow: 3px 3px 15px #00000080;
+    cursor: pointer;
 }
 
 .cards > div > div{
