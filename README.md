@@ -1,8 +1,21 @@
-# React + Vite
+Geminha: 
+ Iniciar projeto, instalando as dependencias
+ Fazer a home page, com os cards desenvolvidos pelo pires.
+ CSS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Nicolas:
+ Integração com banco de dados
+ SQL
+ Cadastro (API)
 
-Currently, two official plugins are available:
+Tuti:
+ Login
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Valgoi:
+ Cadastro
+ CSS
+
+Pires:
+Home logada (Feed)
+Uso da api dos correios
+CSS
