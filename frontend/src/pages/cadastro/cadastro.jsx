@@ -11,9 +11,7 @@ const Cadastro_cliente = () => {
   const [municipio, setMunicipio] = useState("");
   const [senha, setSenha] = useState("");
   const [confirmarSenha, setConfirmarSenha] = useState("");
-  const [dataNasc, setDataNasc] = useState("");  // Estado para data de nascimento
-
-
+  const [dataNasc, setDataNasc] = useState(""); // Estado para data de nascimento
 
   // Função para aplicar máscara no CPF
   const mascaraCPF = (event) => {
@@ -65,56 +63,47 @@ const Cadastro_cliente = () => {
     }
   };
 
-  const voltar = () => {
-    window.location.href = "/";
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (!nome || !email || !cpf || !cep || !municipio || !senha || !confirmarSenha || !dataNasc) {
-      alert("Todos os campos são obrigatórios!");
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Impede o comportamento padrão do formulário
+  
+    // Validações
+    if (!nome || !email || !cpf || !cep || !municipio || !senha || !confirmarSenha) {
+      alert("Por favor, preencha todos os campos.");
       return;
     }
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    if (!emailRegex.test(email)) {
-      alert("Por favor, insira um e-mail válido.");
-      return;
-    }
-    const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
-    if (!cpfRegex.test(cpf)) {
-      alert("Por favor, insira um CPF válido.");
-      return;
-    }
+  
     if (senha !== confirmarSenha) {
-      alert("As senhas não coincidem!");
+      alert("As senhas não coincidem.");
       return;
     }
-    if (senha.length < 6) {
-      alert("A senha deve ter pelo menos 6 caracteres.");
-      return;
-    }
-    const novoUsuario = {
+  
+    const clienteData = {
       nome,
       email,
       cpf,
-      dataNasc,
       cep,
       municipio,
-      senha,
+      senha
     };
-    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-    usuarios.push(novoUsuario);
-    localStorage.setItem("usuarios", JSON.stringify(usuarios));
-    setNome("");
-    setEmail("");
-    setCpf("");
-    setCep("");
-    setMunicipio("");
-    setSenha("");
-    setConfirmarSenha("");
-    setDataNasc("");
-    window.location.href = "/login"
-  };  
+  
+    try {
+      // Envia os dados para o backend utilizando axios
+      const response = await axios.post("http://localhost:3000/clientes", clienteData);
+  
+      if (response.status === 201) {
+        //alert("Cadastro realizado com sucesso!");
+        window.location.href = "/login"; // Redireciona para a página de login
+      }
+    } catch (error) {
+      console.error("Erro ao cadastrar cliente:", error);
+      alert("Erro ao cadastrar cliente. Tente novamente.");
+    }
+  };
+  
+
+  const voltar = () => {
+    window.location.href = "/";
+  };
 
   return (
     <>
@@ -140,8 +129,8 @@ const Cadastro_cliente = () => {
               name="dataNasc"
               id="dataNasc"
               className="inputCadastro"
-              value={dataNasc}  // Vincula ao estado dataNasc
-              onChange={(e) => setDataNasc(e.target.value)}  // Atualiza o estado quando o valor mudar
+              value={dataNasc}
+              onChange={(e) => setDataNasc(e.target.value)}
             />
             <input
               type="text"
@@ -151,7 +140,7 @@ const Cadastro_cliente = () => {
               value={cpf}
               onChange={mascaraCPF}
               maxLength="14"
-              inputmode="numeric"
+              inputMode="numeric"
             />
             <input
               type="email"
@@ -162,24 +151,24 @@ const Cadastro_cliente = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
             <div className="dividirWidth">
-            <input
-              type="text"
-              name="cep"
-              placeholder="CEP"
-              className="inputCadastro"
-              value={cep}
-              onChange={handleCepChange}
-              maxLength="9"
-              inputmode="numeric"
-            />
-            <input
-              type="text"
-              name="municipio"
-              placeholder="Município"
-              className="inputCadastro"
-              value={municipio}
-              readOnly
-            />
+              <input
+                type="text"
+                name="cep"
+                placeholder="CEP"
+                className="inputCadastro"
+                value={cep}
+                onChange={handleCepChange}
+                maxLength="9"
+                inputMode="numeric"
+              />
+              <input
+                type="text"
+                name="municipio"
+                placeholder="Município"
+                className="inputCadastro"
+                value={municipio}
+                readOnly
+              />
             </div>
             <div className="dividirWidth">
               <input
@@ -203,7 +192,14 @@ const Cadastro_cliente = () => {
               Cadastrar
             </button>
           </form>
-          <p class="textoCinza">Já tem sua conta? Entre <a href="/login"><strong><u>aqui</u></strong></a></p>
+          <p className="textoCinza">
+            Já tem sua conta? Entre{" "}
+            <a href="/login">
+              <strong>
+                <u>aqui</u>
+              </strong>
+            </a>
+          </p>
         </div>
       </div>
     </>

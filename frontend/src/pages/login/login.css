@@ -88,3 +88,8 @@ form{
     flex-wrap: nowrap;
     cursor: pointer;
 }
+
+.erro{
+    text-align: center;
+    font-size: 15px;
+}
